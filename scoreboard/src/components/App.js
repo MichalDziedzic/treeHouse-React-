@@ -37,6 +37,16 @@ class App extends Component {
     });
   }
 
+  handleChangeScore = (delta,index) => {
+    console.log('index:'+index,'delta '+delta)
+    
+    
+      this.setState( prevState => ({
+        score: prevState.players[index].score += delta
+      }));
+   
+    }
+
   render() {
     return (
       <div className="scoreboard">
@@ -46,12 +56,14 @@ class App extends Component {
         />
   
         {/* Players list */}
-        {this.state.players.map( player =>
+        {this.state.players.map( (player,index) =>
           <Player 
             name={player.name}
             id={player.id}
             score={player.score}
-            key={player.id.toString()} 
+            key={player.id.toString()}
+            index={index}
+            handleChangeScore={this.handleChangeScore} 
             removePlayer={this.handleRemovePlayer}           
           />
         )}
