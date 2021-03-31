@@ -3,6 +3,7 @@ import Header from './Header';
 import Player from './Player';
 
 
+
 class App extends Component {
   state = {
     players: [
@@ -38,10 +39,7 @@ class App extends Component {
   }
 
   handleChangeScore = (delta,index) => {
-    console.log('index:'+index,'delta '+delta)
-    
-    
-      this.setState( prevState => ({
+    this.setState( prevState => ({
         score: prevState.players[index].score += delta
       }));
    
@@ -52,7 +50,7 @@ class App extends Component {
       <div className="scoreboard">
         <Header 
           title="Scoreboard" 
-          totalPlayers={this.state.players.length} 
+          players={this.state.players} 
         />
   
         {/* Players list */}
