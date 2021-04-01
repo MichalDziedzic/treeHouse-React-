@@ -14,6 +14,7 @@ handleSubmit=(e)=>
 {
     e.preventDefault();
     this.props.addPlayer(this.state.value);
+    this.setState({value:''});
 }
 render()
 { 
