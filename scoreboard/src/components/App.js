@@ -48,20 +48,21 @@ class App extends Component {
     }
    addPlayerMethod=(name)=>
    {
-    this.setState(
-     {
+    this.setState( prevState =>{
+      console.log(prevState.players)
+      return{
        players:[
-         ...this.state.players,
+         ...prevState.players,
          {
         name,
         score:0,
         id:this.prevPlayerId+=1
       }
        ]
-     }
-    )}
+    }})
+  }
 
-  render() {
+  render(){
     return (
       <div className="scoreboard">
         <Header 
