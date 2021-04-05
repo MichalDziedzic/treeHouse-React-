@@ -18,8 +18,9 @@ class StarRating extends Component {
     {
       stars.push(
       <Star 
-        key={i}
+        isSelected={this.state.rating > i}
         click={()=>this.handleSetRating(i+1)}
+        key={i}
       />)
     }
     return stars;
