@@ -30,7 +30,10 @@ class StarRating extends Component {
   // Pass the function to a Star component via props
   handleSetRating=(rating)=>
   {
-   this.setState({rating}) 
+    if(this.state.rating === rating)
+      this.setState({rating:0})
+    else
+    this.setState({rating}) 
   }
 
   render() {
