@@ -9,15 +9,20 @@ class Stopwatch extends Component {
     }
     handleStopwatch=()=>
     {
-        console.log(this.state.isRunning)
+        console.log("isrunning")
         this.setState((prevState)=>({isRunning:!prevState.isRunning}));
-        console.log(this.state.isRunning)
+        
         if(!this.setState.isRunning)
             this.setState({previousTime:Date.now()})
     }
     componentDidMount()
     {
         this.intervalID=setInterval(() =>this.tick(),100);
+    }
+    componentWillUnmount()
+    {
+        console.log('usuniety');
+        clearInterval(this.intervalID);
     }
     tick = () => 
     {
@@ -31,6 +36,10 @@ class Stopwatch extends Component {
            }))
        }
     }
+    handleResetWatch=()=>
+    {
+        this.setState({elapsedTime:0});
+    }
     render()
     {
         return(
@@ -40,7 +49,7 @@ class Stopwatch extends Component {
                 <button onClick={this.handleStopwatch}>
                 { this.state.isRunning ? 'Stop' : 'Start'}
                 </button> 
-                <button>Reset</button>
+                <button onClick={this.handleResetWatch}>Reset</button>
             </div>
 
         )
