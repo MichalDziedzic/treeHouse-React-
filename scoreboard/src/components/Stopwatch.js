@@ -9,7 +9,7 @@ class Stopwatch extends Component {
     }
     handleStopwatch=()=>
     {
-        console.log("isrunning")
+        
         this.setState((prevState)=>({isRunning:!prevState.isRunning}));
         
         if(!this.setState.isRunning)
@@ -21,12 +21,11 @@ class Stopwatch extends Component {
     }
     componentWillUnmount()
     {
-        console.log('usuniety');
         clearInterval(this.intervalID);
     }
     tick = () => 
     {
-        console.log('test');
+        
        if(this.state.isRunning)
        {
            const now=Date.now();
