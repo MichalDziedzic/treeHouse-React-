@@ -5,18 +5,27 @@ class Player extends PureComponent{
 
   render()
   {
-    console.log(`${this.props.name} render`)
+
+    const {
+        name,
+        id,
+        score,
+        index,
+        handleChangeScore,
+        removePlayer,
+    } = this.props;
+
     return (
             <div className="player">
               <span className="player-name">
               <button className="remove-player" 
-              onClick={() => this.props.removePlayer(this.props.id)}>✖</button>
-              { this.props.name }
+              onClick={() => removePlayer(id)}>✖</button>
+              { name }
             </span>
       
-            <Counter score={this.props.score}  
-              index ={this.props.index} 
-              handleChangeScore={this.props.handleChangeScore} 
+            <Counter score={score}  
+              index ={index} 
+              handleChangeScore={handleChangeScore} 
             />
           </div>
         );

@@ -1,12 +1,14 @@
 import React from 'react';
-const Counter = (props) =>{
+const Counter = ({score,index,handleChangeScore}) =>{
   
-  const index = props.index;
+  
       return (
         <div className="counter">
-          <button className="counter-action decrement" onClick={()=>props.handleChangeScore(-1,index)}> - </button>
-          <span className="counter-score">{props.score}</span>
-          <button className="counter-action increment"onClick={()=>props.handleChangeScore(1,index)} > + </button>
+          <button className="counter-action decrement" onClick={()=>
+            handleChangeScore(-1,index)}> - </button>
+          <span className="counter-score">{score}</span>
+          <button className="counter-action increment"onClick={()=>
+            handleChangeScore(1,index)} > + </button>
         </div>
       );
     
