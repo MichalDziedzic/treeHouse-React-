@@ -72,7 +72,9 @@ class App extends Component {
   }
 
   render(){
+
     let highestScore = this.getHighScore();
+
     return (
       <div className="scoreboard">
         <Header  players={this.state.players} />
