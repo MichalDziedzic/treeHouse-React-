@@ -1,7 +1,7 @@
 import React from 'react';
-const Counter = ({score,index,handleChangeScore}) =>{
-  
-  
+import propTypes from 'prop-types';
+
+const Counter = ({score,index,handleChangeScore}) =>{  
       return (
         <div className="counter">
           <button className="counter-action decrement" onClick={()=>
@@ -13,4 +13,16 @@ const Counter = ({score,index,handleChangeScore}) =>{
       );
     
   }
+Counter.propTypes=
+{
+  score:propTypes.number,
+  index:propTypes.number,
+  handleChangeScore:propTypes.func
+}
+
  export default  Counter;
+
+ /*  add more proptypes in Header comp and also in Stats 
+ but use arrayOf meth and shape to check a properties inside in object (array)
+ 
+ */ 
