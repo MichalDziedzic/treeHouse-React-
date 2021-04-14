@@ -2,21 +2,21 @@ import React from 'react'
 import Player from './Player';
 import {Consumer} from './Context';
 
-const PlayerList = ({highestScore ,handleChangeScore, removePlayer}) => {
+const PlayerList = () => {
     return (
                   <Consumer>
                       {
                           value=>{
                               return(
-                              value.map((player,index)=>
+                              value.players.map((player,index)=>
                               (
                                  <Player 
                                     {...player}
                                     key={player.id.toString()}
                                     index={index}
-                                    handleChangeScore={handleChangeScore} 
-                                    removePlayer={removePlayer}
-                                    isHighestScore={ highestScore === player.score}         
+                                    handleChangeScore={value.actions.changeScore} 
+                                    removePlayer={value.actions.removePlayer}
+                                    isHighestScore={ value.actions.highestScore === player.score}         
                                 /> 
                               )))
                           }

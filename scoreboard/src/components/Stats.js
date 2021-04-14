@@ -9,7 +9,7 @@ const Stats=()=>
         <Consumer>
             {   value=>{
 
-                const totalPoints = value.reduce((acc,currentPlayer)=>{
+                const totalPoints = value.players.reduce((acc,currentPlayer)=>{
                         return acc+currentPlayer.score},0)
 
                 return(

@@ -16,8 +16,7 @@ const Counter = ({score,index,handleChangeScore}) =>{
 Counter.propTypes=
 {
   score:propTypes.number,
-  index:propTypes.number,
-  handleChangeScore:propTypes.func
+  index:propTypes.number
 }
 
  export default  Counter;
