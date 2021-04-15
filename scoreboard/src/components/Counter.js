@@ -1,15 +1,22 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import {Consumer} from './Context';
 
-const Counter = ({score,index,handleChangeScore}) =>{  
+const Counter = ({score,index}) =>
+{  
       return (
-        <div className="counter">
-          <button className="counter-action decrement" onClick={()=>
-            handleChangeScore(-1,index)}> - </button>
-          <span className="counter-score">{score}</span>
-          <button className="counter-action increment"onClick={()=>
-            handleChangeScore(1,index)} > + </button>
-        </div>
+        <Consumer>
+          { value=>(
+            <div className="counter">
+              <button className="counter-action decrement" onClick={()=>
+                value.actions.changeScore(-1,index)}> - </button>
+                <span className="counter-score">{score}</span>
+              <button className="counter-action increment"onClick={()=>
+                value.actions.changeScore(1,index)} > + </button>
+            </div>) 
+          }
+        </Consumer>
+        
       );
     
   }
@@ -20,8 +27,3 @@ Counter.propTypes=
 }
 
  export default  Counter;
-
- /*  add more proptypes in Header comp and also in Stats 
- but use arrayOf meth and shape to check a properties inside in object (array)
- 
- */ 

@@ -13,9 +13,7 @@ const PlayerList = () => {
                                  <Player 
                                     {...player}
                                     key={player.id.toString()}
-                                    index={index}
-                                    handleChangeScore={value.actions.changeScore} 
-                                    removePlayer={value.actions.removePlayer}
+                                    index={index} 
                                     isHighestScore={ value.actions.highestScore === player.score}         
                                 /> 
                               )))
