@@ -6,15 +6,15 @@ const PlayerList = () => {
     return (
                   <Consumer>
                       {
-                          value=>{
+                          ( {players , actions} ) => {
                               return(
-                              value.players.map((player,index)=>
+                              players.map((player,index)=>
                               (
                                  <Player 
                                     {...player}
                                     key={player.id.toString()}
                                     index={index} 
-                                    isHighestScore={ value.actions.highestScore === player.score}         
+                                    isHighestScore={ actions.highestScore === player.score}         
                                 /> 
                               )))
                           }

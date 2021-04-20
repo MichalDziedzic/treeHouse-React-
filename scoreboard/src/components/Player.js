@@ -20,12 +20,12 @@ class Player extends PureComponent{
     return (
         
           <Consumer>
-            {value=>{
+            {({actions , player})=>{
               return(
                 <div className="player">
                     <span className="player-name">
                         <button className="remove-player" 
-                          onClick={() => value.actions.removePlayer(id)}>✖</button>
+                          onClick={() => actions.removePlayer(player[index].id)}>✖</button>
                           <Icon
                             HighScore={isHighestScore}
                           /> 

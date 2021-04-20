@@ -82,7 +82,8 @@ export class Provider extends Component {
                     addPlayer:this.addPlayerMethod,
                   }    
                 }}> 
-                {this.props.children}
+                 {this.props.children} 
+                
                 </ScoreboardContext.Provider>
         )
     }

@@ -2,17 +2,17 @@ import React from 'react';
 import propTypes from 'prop-types';
 import {Consumer} from './Context';
 
-const Counter = ({score,index}) =>
+const Counter = ({index}) =>
 {  
       return (
         <Consumer>
-          { value=>(
+          {({actions , players})=>(
             <div className="counter">
               <button className="counter-action decrement" onClick={()=>
-                value.actions.changeScore(-1,index)}> - </button>
-                <span className="counter-score">{score}</span>
+                actions.changeScore(-1,index)}> - </button>
+                <span className="counter-score">{players[index].score}</span>
               <button className="counter-action increment"onClick={()=>
-                value.actions.changeScore(1,index)} > + </button>
+                actions.changeScore(1,index)} > + </button>
             </div>) 
           }
         </Consumer>
