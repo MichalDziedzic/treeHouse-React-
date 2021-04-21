@@ -10,12 +10,12 @@ render()
 { 
     return(
         <Consumer>
-            {value=>{
+            {({actions})=>{
 
                 const handleSubmit=(e)=>{
 
                     e.preventDefault();
-                    value.actions.addPlayer(this.playerInput.current.value);
+                    actions.addPlayer(this.playerInput.current.value);
                     e.currentTarget.reset();   
                 }
                 return(
