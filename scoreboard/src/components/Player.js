@@ -9,33 +9,22 @@ class Player extends PureComponent{
   render()
   {
 
-    const {
-        name,
-        id,
-        score,
-        index,
-        isHighestScore,
-    } = this.props;
+    const { isHighestScore , index} = this.props;
 
     return (
         
           <Consumer>
-            {({actions , player})=>{
+            {({actions , players})=>{
               return(
                 <div className="player">
                     <span className="player-name">
                         <button className="remove-player" 
-                          onClick={() => actions.removePlayer(player[index].id)}>✖</button>
-                          <Icon
-                            HighScore={isHighestScore}
-                          /> 
-                          { name }
+                          onClick={() => actions.removePlayer(players[index].id)}>✖</button>
+                          <Icon HighScore={isHighestScore} /> 
+                          {players[index].name}
                             </span>
-                            <Counter score={score}  
-                            index ={index} 
-                            />
+                            <Counter index={index}/>
                     </div>
-                
               )
             }}
             </Consumer>
